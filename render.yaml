@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: once-campfire
+    runtime: ruby
+    branch: main
+    buildCommand: ./bin/render-build.sh
+    startCommand: bundle exec puma -C config/puma.rb
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: SECRET_KEY_BASE
+        sync: false
